@@ -1,0 +1,54 @@
+LAB 03: LEXICAL ANALYZER USING FLEX
+
+Student ID: 232-115-273
+
+1. OBJECTIVE
+
+To develop a lexical analyzer using Flex that recognizes keywords, identifiers, numbers, operators, and separators. It also ignores comments and whitespace and detects invalid characters.
+
+2. INPUT PROGRAM
+
+int main() {
+    int @ = 10;
+    // This is single line comment
+    10 = x;
+    return 0;
+}
+
+3. COMMANDS USED
+
+flex -o lex.yy.c lexer.flex
+
+gcc lex.yy.c -o lexer.exe
+
+./lexer.exe < source.c > tokens.txt
+
+4. OUTPUT
+
+TOKEN        LEXEME
+KEYWORD      int
+IDENTIFIER   main
+SEPARATOR    (
+SEPARATOR    )
+SEPARATOR    {
+KEYWORD      int
+Error occurred at line 2
+OPERATOR     =
+NUMBER       10
+SEPARATOR    ;
+NUMBER       10
+OPERATOR     =
+IDENTIFIER   x
+SEPARATOR    ;
+KEYWORD      return
+NUMBER       0
+SEPARATOR    ;
+SEPARATOR    }
+
+5. EXPLANATION
+
+- Keywords: Recognizes int and return.
+- Identifiers: Recognizes main and x.
+- Numbers: Recognizes integer values such as 10 and 0.
+- Operators: Recognizes operators such as =.
+- Separators: Recognizes
